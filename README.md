@@ -1,4 +1,1 @@
-# Python Projects
-# -EBEC 101 coursework from Purdue
-# -YouTube tutorials
-# -Udemy
+# Purdue EBEC 101 Fall 2022 Coursework
