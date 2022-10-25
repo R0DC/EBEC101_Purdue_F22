@@ -1,1 +1,4 @@
-# EBEC101_Purdue_F22
+# Python Projects
+# -EBEC 101 coursework from Purdue
+# -YouTube tutorials
+# -Udemy
