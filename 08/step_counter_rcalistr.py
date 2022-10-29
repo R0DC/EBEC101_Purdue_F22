@@ -1,10 +1,12 @@
 """
 Author: Rodion Calistru, rcalistr@purdue.edu
-Assignment: 08.6 - Assignment Name
-Date: MM/DD/YYYY
+Assignment: 08.6 - Step Counter
+Date: 10/29/2022
 
 Description:
-    Describe your program here.
+    Given a list of steps taken each day for 365 days,
+    the program computes the average steps taken
+    each month
 
 Contributors:
     Rodion Calistru, rcalistr@purdue.edu [repeat for each]
@@ -35,23 +37,27 @@ Academic Integrity Statement:
 def main():
     data = []
     steps = []
-    Months = ['January','February','March','April','May','June','July','August','September','October','November','December']
-    month_days = [31,28,31,30,31,30,30,31,31,30,31,30,31]
+    Months = ['January','February','March','April','May','June','July','August','September','October','November','December'] #Months in a year
+    month_days = [31,28,31,30,31,30,31,31,30,31,30,31] #Days of months
     steps_mon = [0,0,0,0,0,0,0,0,0,0,0,0]
-    counter = 0
+    start = 0 #Keeps track of the month the loop is in
+
     with open('steps.txt','r') as fo:
         for line in fo:
             data.append(line.rstrip()) #Read the lines from the file into the list
     
     for _ in data:
-        steps.append(float(n)) #Convert the strings into float values
+        steps.append(float(_)) #Convert the strings into float values
 
-    for nr_record in range(len(steps)):
-        if 0 <= nr_record < 31:
-            steps_mon[0] = steps[nr_record]
-        elif 31 <= nr_record < 31 + 28:
+    for month in range(0,len(Months)):
+        for days in range(0,month_days[month]):
+            steps_mon[month] += steps[days + start] #Sums up steps for a month
+        start += month_days[month] #Iterates which month the steps are counted for
+
+    print("The average steps taken each month were:")
+    for m in range(0,len(Months)):
+        print(f"{Months[m]:>10} : {steps_mon[m]/month_days[m]:7.2f}")
         
-
 """Do not change anything below this line."""
 if __name__ == "__main__":
     main()
